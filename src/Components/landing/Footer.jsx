@@ -15,10 +15,10 @@ export default function Footer() {
                         transition={{ duration: 0.5 }}
                     >
                         <h3 className="font-poppins text-2xl font-bold text-white mb-3">
-                            Meilleur Analytics
+                            Meilleur Analytics Private Limited
                         </h3>
                         <p className="text-white/50 text-sm leading-relaxed">
-                            Offshore Accounting & Analytics Firm
+                            Offshore Accounting & Analytics Firm - Your Transformation Partner
                         </p>
                         <div className="mt-6 w-12 h-1 bg-gradient-to-r from-[#00B99E] to-[#9EE8DD] rounded-full" />
                     </motion.div>
@@ -33,17 +33,17 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-4">Services</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                <a href="#" className="text-white/50 text-sm flex items-center gap-2">
                                     Financial Services
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                <a href="#" className="text-white/50 text-sm flex items-center gap-2">
                                     IT & Analytics
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                <a href="#" className="text-white/50 text-sm flex items-center gap-2">
                                     Training & Development
                                 </a>
                             </li>
@@ -60,17 +60,17 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-4">Who We Serve</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm">
+                                <a href="#" className="text-white/50 text-sm">
                                     Businesses
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm">
+                                <a href="#" className="text-white/50 text-sm">
                                     Enterprises
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm">
+                                <a href="#" className="text-white/50 text-sm">
                                     Individuals
                                 </a>
                             </li>

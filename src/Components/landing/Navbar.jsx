@@ -47,7 +47,7 @@ export default function Navbar() {
                         <a href="#" className="flex items-center gap-2">
                             <img 
                                 src="/asset/logo.jpeg" 
-                                alt="Meilleur Analytics Logo"
+                                alt="Meilleur Analytics Private Limited Logo"
                                 className="w-[38px] h-[38px] rounded-full object-cover border border-[#00B99E]"
                             />
                             <span className="font-poppins text-[19px] font-bold text-[#000066]">
@@ -115,7 +115,10 @@ export default function Navbar() {
                                 </a>
                             ))}
                             <Button 
-                                onClick={scrollToServices}
+                                onClick={() => {
+                                    scrollToServices();
+                                    setMobileMenuOpen(false);
+                                }}
                                 className="w-full bg-[#00B99E] hover:bg-[#00a88e] text-white mt-6 py-6 rounded-full"
                             >
                                 Get Started

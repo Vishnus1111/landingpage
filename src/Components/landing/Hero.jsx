@@ -68,12 +68,12 @@ export default function Hero() {
                             <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#000066] leading-tight tracking-tight">
                                 Welcome to<br />
                                 <span className="bg-gradient-to-r from-[#000066] to-[#00B99E] bg-clip-text text-transparent">
-                                    Meilleur Analytics
+                                    Meilleur Analytics Private Limited
                                 </span>
                             </h1>
                             
                             <h2 className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
-                                A dynamic offshore accounting & analytics firm delivering clarity, insights, and future-ready skills.
+                                Offshore Accounting & Analytics Firm - Your Transformation Partner
                             </h2>
                             
                             <p className="text-gray-500 text-lg leading-relaxed max-w-xl">
