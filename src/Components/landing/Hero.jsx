@@ -4,7 +4,19 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
-    return (
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const scrollToServices = () => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
         <section className="relative min-h-screen bg-white overflow-hidden">
             {/* Abstract Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
@@ -69,6 +81,7 @@ export default function Hero() {
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Button 
+                                onClick={scrollToContact}
                                 size="lg"
                                 className="bg-[#00B99E] hover:bg-[#00a88e] text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#00B99E]/20"
                             >
@@ -76,6 +89,7 @@ export default function Hero() {
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
                             <Button 
+                                onClick={scrollToServices}
                                 size="lg"
                                 variant="outline"
                                 className="border-2 border-[#000066] text-[#000066] hover:bg-[#000066] hover:text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"

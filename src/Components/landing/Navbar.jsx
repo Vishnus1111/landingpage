@@ -22,13 +22,20 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const scrollToServices = () => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+            servicesSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <motion.nav
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-gray-100 ${
                     isScrolled 
                         ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-gray-100/50' 
                         : 'bg-transparent'
@@ -38,10 +45,15 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <a href="#" className="flex items-center gap-2">
-                            <span className="font-poppins text-xl font-bold text-[#000066]">
+                            <img 
+                                src="/asset/logo.jpeg" 
+                                alt="Meilleur Analytics Logo"
+                                className="w-[38px] h-[38px] rounded-full object-cover border border-[#00B99E]"
+                            />
+                            <span className="font-poppins text-[19px] font-bold text-[#000066]">
                                 Meilleur
                             </span>
-                            <span className="font-poppins text-xl font-light text-[#00B99E]">
+                            <span className="font-poppins text-[19px] font-light text-[#00B99E]">
                                 Analytics
                             </span>
                         </a>
@@ -63,6 +75,7 @@ export default function Navbar() {
                         {/* CTA Button */}
                         <div className="hidden lg:block">
                             <Button 
+                                onClick={scrollToServices}
                                 className="bg-[#00B99E] hover:bg-[#00a88e] text-white px-6 rounded-full"
                             >
                                 Get Started
@@ -102,6 +115,7 @@ export default function Navbar() {
                                 </a>
                             ))}
                             <Button 
+                                onClick={scrollToServices}
                                 className="w-full bg-[#00B99E] hover:bg-[#00a88e] text-white mt-6 py-6 rounded-full"
                             >
                                 Get Started
