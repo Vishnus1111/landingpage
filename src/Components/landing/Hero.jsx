@@ -17,6 +17,8 @@ export default function Hero() {
             servicesSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    return (
         <section className="relative min-h-screen bg-white overflow-hidden">
             {/* Abstract Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
