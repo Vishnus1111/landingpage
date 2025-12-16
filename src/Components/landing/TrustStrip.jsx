@@ -33,9 +33,9 @@ export default function TrustStrip() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="flex flex-col items-start gap-4"
+                            className="flex flex-row items-start gap-4"
                         >
-                            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00B99E]/20 flex items-center justify-center">
+                            <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00B99E]/20 flex items-center justify-center mt-0.5">
                                 <CheckCircle2 className="w-5 h-5 text-[#00B99E]" />
                             </div>
                             <span className="text-white/90 text-sm font-light leading-relaxed">
