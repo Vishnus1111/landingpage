@@ -23,9 +23,9 @@ const trustItems = [
 
 export default function TrustStrip() {
     return (
-        <section className="bg-[#000066] py-8">
+        <section className="bg-[#000066] py-12">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {trustItems.map((item, index) => (
                         <motion.div 
                             key={index}
@@ -33,12 +33,12 @@ export default function TrustStrip() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="flex items-center gap-3 justify-center md:justify-start"
+                            className="flex flex-col items-center md:items-start text-center md:text-left gap-3"
                         >
                             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#00B99E]/20 flex items-center justify-center">
                                 <CheckCircle2 className="w-5 h-5 text-[#00B99E]" />
                             </div>
-                            <span className="text-white/90 text-sm font-light">
+                            <span className="text-white/90 text-sm font-light leading-relaxed">
                                 {item.text}
                             </span>
                         </motion.div>
