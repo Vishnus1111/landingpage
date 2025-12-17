@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ConsultationModal from "./ConsultationModal";
 
 export default function PartnershipCTA() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
-        <section className="relative py-24 bg-[#000066] overflow-hidden">
+        <>
+            <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <section className="relative py-24 bg-[#000066] overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-0 w-96 h-96 bg-[#00B99E] rounded-full opacity-5 blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
@@ -42,6 +47,7 @@ export default function PartnershipCTA() {
 
                     <div className="flex justify-center">
                         <Button 
+                            onClick={() => setIsModalOpen(true)}
                             size="lg"
                             className="bg-[#00B99E] hover:bg-[#00a88e] text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#00B99E]/30"
                         >
@@ -52,5 +58,6 @@ export default function PartnershipCTA() {
                 </motion.div>
             </div>
         </section>
+        </>
     );
 }
