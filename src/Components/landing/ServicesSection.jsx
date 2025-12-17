@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, BarChart3, GraduationCap } from "lucide-react";
+import { TrendingUp, BarChart3, GraduationCap } from "lucide-react";
 
 const services = [
     {
@@ -13,7 +13,6 @@ const services = [
             "Data-driven insights for informed decisions",
             "Industry-tailored finance solutions"
         ],
-        cta: "View Financial Services",
         gradient: "from-[#000066] to-[#000066]/80"
     },
     {
@@ -26,7 +25,6 @@ const services = [
             "IT-enabled finance automation",
             "Analytics for operational efficiency"
         ],
-        cta: "Explore IT & Analytics",
         gradient: "from-[#00B99E] to-[#00B99E]/80"
     },
     {
@@ -39,7 +37,6 @@ const services = [
             "Industry-ready learning frameworks",
             "Academic-to-professional bridge"
         ],
-        cta: "Browse Training Programs",
         gradient: "from-[#9EE8DD] to-[#00B99E]"
     }
 ];
@@ -96,10 +93,6 @@ export default function ServicesSection() {
                                     ))}
                                 </ul>
 
-                                <button className="inline-flex items-center text-[#00B99E] font-medium group-hover:text-[#000066] transition-colors duration-300">
-                                    {service.cta}
-                                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                                </button>
                             </div>
                         </motion.div>
                     ))}
