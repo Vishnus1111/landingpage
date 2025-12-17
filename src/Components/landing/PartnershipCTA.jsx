@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Button } from "@/Components/ui/button";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function PartnershipCTA() {
     return (
@@ -40,21 +40,13 @@ export default function PartnershipCTA() {
                         We believe in empowering clients — through clean books, accurate finances, actionable analytics, and skill-driven training.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex justify-center">
                         <Button 
                             size="lg"
                             className="bg-[#00B99E] hover:bg-[#00a88e] text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#00B99E]/30"
                         >
                             Request a Consultation
                             <ArrowRight className="ml-2 h-5 w-5" />
-                        </Button>
-                        <Button 
-                            size="lg"
-                            variant="outline"
-                            className="border-2 border-white/30 text-white hover:bg-white hover:text-[#000066] px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
-                        >
-                            <MessageCircle className="mr-2 h-5 w-5" />
-                            Contact Us
                         </Button>
                     </div>
                 </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { Mail, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, Linkedin, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -87,21 +87,25 @@ export default function Footer() {
                         <h4 className="text-white font-semibold mb-4">Contact</h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="mailto:contact@meilleuranalytics.com" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=info@meilleuranalytics.com" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
                                     <Mail className="w-4 h-4" />
                                     Email Us
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                <a href="https://www.linkedin.com/company/meilleuranalytics/" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
                                     <Linkedin className="w-4 h-4" />
                                     LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
-                                    <ExternalLink className="w-4 h-4" />
-                                    Contact Form
+                                <span className="hidden md:flex text-white/50 text-sm items-center gap-2">
+                                    <Phone className="w-4 h-4" />
+                                    +91 9740985518
+                                </span>
+                                <a href="tel:+919740985518" className="md:hidden text-white/50 hover:text-[#00B99E] transition-colors text-sm flex items-center gap-2">
+                                    <Phone className="w-4 h-4" />
+                                    +91 9740985518
                                 </a>
                             </li>
                         </ul>
