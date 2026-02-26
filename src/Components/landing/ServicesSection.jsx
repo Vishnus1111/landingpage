@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { TrendingUp, BarChart3, GraduationCap } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const services = [
     {
@@ -13,7 +14,8 @@ const services = [
             "Data-driven insights for informed decisions",
             "Industry-tailored finance solutions"
         ],
-        gradient: "from-[#000066] to-[#000066]/80"
+        gradient: "from-[#000066] to-[#000066]/80",
+        cta: "View Financial Services →"
     },
     {
         icon: BarChart3,
@@ -25,7 +27,9 @@ const services = [
             "IT-enabled finance automation",
             "Analytics for operational efficiency"
         ],
-        gradient: "from-[#00B99E] to-[#00B99E]/80"
+        gradient: "from-[#00B99E] to-[#00B99E]/80",
+        cta: "Explore IT & Analytics →",
+        link: "/it-services"
     },
     {
         icon: GraduationCap,
@@ -37,7 +41,8 @@ const services = [
             "Industry-ready learning frameworks",
             "Academic-to-professional bridge"
         ],
-        gradient: "from-[#9EE8DD] to-[#00B99E]"
+        gradient: "from-[#9EE8DD] to-[#00B99E]",
+        cta: "Browse Training Programs →"
     }
 ];
 
@@ -84,7 +89,7 @@ export default function ServicesSection() {
                                     {service.description}
                                 </p>
 
-                                <ul className="space-y-3 mb-8">
+                                <ul className="space-y-3 mb-6">
                                     {service.highlights.map((highlight, i) => (
                                         <li key={i} className="flex items-start gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-[#00B99E] mt-2 flex-shrink-0" />
@@ -92,6 +97,19 @@ export default function ServicesSection() {
                                         </li>
                                     ))}
                                 </ul>
+
+                                {service.link ? (
+                                    <Link 
+                                        to={service.link}
+                                        className="group/cta inline-flex items-center gap-2 text-[#00B99E] font-medium text-sm hover:gap-3 transition-all duration-300"
+                                    >
+                                        {service.cta}
+                                    </Link>
+                                ) : (
+                                    <button className="group/cta inline-flex items-center gap-2 text-[#00B99E] font-medium text-sm hover:gap-3 transition-all duration-300">
+                                        {service.cta}
+                                    </button>
+                                )}
 
                             </div>
                         </motion.div>

@@ -1,0 +1,63 @@
+import React, { useRef, useState } from 'react';
+import NavbarIT from '@/components/it-services/NavbarIT';
+import HeroBanner from '@/components/it-services/HeroBanner';
+import TrustStripIT from '@/components/it-services/TrustStripIT';
+import ServicesGrid from '@/components/it-services/ServicesGrid';
+import ProjectEstimator from '@/components/it-services/ProjectEstimator';
+import WebsiteTypesSection from '@/components/it-services/WebsiteTypesSection';
+import DesignApproachesSection from '@/components/it-services/DesignApproachesSection';
+import ProcessSection from '@/components/it-services/ProcessSection';
+import PartnershipCTAIT from '@/components/it-services/PartnershipCTAIT';
+import FooterIT from '@/components/it-services/FooterIT';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export default function ITServices() {
+  const estimatorRef = useRef(null);
+  const servicesRef = useRef(null);
+  const [showEstimator, setShowEstimator] = useState(false);
+
+  const scrollToEstimator = () => {
+    estimatorRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleWebsiteDevYes = () => {
+    setShowEstimator(true);
+    setTimeout(() => {
+      estimatorRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      <NavbarIT />
+      <HeroBanner onScrollToEstimator={() => {
+        setShowEstimator(true);
+        setTimeout(() => estimatorRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+      }} />
+      <TrustStripIT />
+      <div ref={servicesRef}>
+        <ServicesGrid onWebsiteDevYes={handleWebsiteDevYes} />
+      </div>
+
+      <AnimatePresence>
+        {showEstimator && (
+          <motion.div
+            key="estimator"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
+            <ProjectEstimator estimatorRef={estimatorRef} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <WebsiteTypesSection />
+      <DesignApproachesSection />
+      <ProcessSection />
+      <PartnershipCTAIT />
+      <FooterIT />
+    </div>
+  );
+}
