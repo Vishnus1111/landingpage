@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Check, ChevronRight, Calculator, IndianRupee, MessageCircle, Info, Sparkles } from 'lucide-react';
+import { Check, ChevronLeft, ChevronRight, Calculator, IndianRupee, MessageCircle, Info, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ContactPopup } from './ContactForm';
 
@@ -135,6 +135,16 @@ export default function ProjectEstimator({ estimatorRef }) {
     return !!bizQ.q1 && !!bizQ.q2 && !!bizQ.q3;
   };
 
+  const handleWebsiteTypeSelect = (websiteTypeId) => {
+    setSel((prev) => ({ ...prev, websiteType: websiteTypeId }));
+    setCurrentStep(2);
+  };
+
+  const handleDesignApproachSelect = (approachId) => {
+    setSel((prev) => ({ ...prev, designApproach: approachId }));
+    setCurrentStep(3);
+  };
+
   return (
     <section ref={estimatorRef} className="py-20 px-6 lg:px-12 bg-white">
       <div className="container mx-auto max-w-6xl">
@@ -169,6 +179,16 @@ export default function ProjectEstimator({ estimatorRef }) {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Wizard */}
           <div className="lg:col-span-2">
+            {currentStep > 1 && (
+              <button
+                onClick={() => setCurrentStep((prev) => Math.max(1, prev - 1))}
+                className="mb-4 inline-flex items-center justify-center w-9 h-9 rounded-full border border-[#283593] bg-[#283593] text-white hover:bg-[#3949ab] hover:border-[#3949ab] transition-colors"
+                aria-label="Go back"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+            )}
+
             <AnimatePresence mode="wait">
               {/* STEP 1: Website Type */}
               {currentStep === 1 && (
@@ -177,7 +197,7 @@ export default function ProjectEstimator({ estimatorRef }) {
                   <p className="text-sm text-slate-500 mb-6">Each type has different complexity, cost, and purpose.</p>
                   <div className="space-y-3">
                     {websiteTypes.map(type => (
-                      <button key={type.id} onClick={() => setSel(prev => ({ ...prev, websiteType: type.id }))}
+                      <button key={type.id} onClick={() => handleWebsiteTypeSelect(type.id)}
                         className={cn("w-full p-4 rounded-xl border-2 text-left transition-all",
                           sel.websiteType === type.id ? "border-[#000066] bg-[#eef1ff]/60" : "border-gray-100 hover:border-[#e79d1a]/40 bg-white"
                         )}>
@@ -213,7 +233,7 @@ export default function ProjectEstimator({ estimatorRef }) {
                   <p className="text-sm text-slate-500 mb-6">The design approach impacts cost, timeline, and scalability.</p>
                   <div className="space-y-4">
                     {designApproaches.map(approach => (
-                      <button key={approach.id} onClick={() => setSel(prev => ({ ...prev, designApproach: approach.id }))}
+                      <button key={approach.id} onClick={() => handleDesignApproachSelect(approach.id)}
                         className={cn("w-full p-5 rounded-xl border-2 text-left transition-all relative",
                           sel.designApproach === approach.id ? "border-[#000066] bg-[#eef1ff]/60" : "border-gray-100 hover:border-[#e79d1a]/40 bg-white",
                           approach.id === 'semi' && "ring-1 ring-[#1a8a6e]/30"
@@ -312,15 +332,8 @@ export default function ProjectEstimator({ estimatorRef }) {
             </AnimatePresence>
 
             {/* Navigation */}
-            <div className="flex justify-between mt-8">
-              <button onClick={() => setCurrentStep(p => Math.max(1, p - 1))} disabled={currentStep === 1}
-                className="px-5 py-2.5 border-2 border-gray-200 text-gray-600 rounded-lg font-medium hover:border-gray-300 disabled:opacity-40 transition-colors">Back</button>
-              {currentStep < 3 ? (
-                <button onClick={() => setCurrentStep(p => Math.min(3, p + 1))} disabled={!canProceed()}
-                  className="px-5 py-2.5 bg-[#000066] hover:bg-[#e79d1a] text-white rounded-lg font-medium disabled:opacity-40 transition-colors flex items-center gap-1">
-                  Continue <ChevronRight className="w-4 h-4" />
-                </button>
-              ) : (
+            <div className="flex justify-end mt-8">
+              {currentStep === 3 && (
                 <button disabled={!canProceed()} onClick={() => setShowPopup(true)}
                   className="px-5 py-2.5 bg-[#1a8a6e] hover:bg-[#e79d1a] text-white rounded-lg font-medium disabled:opacity-40 transition-colors flex items-center gap-2">
                   Contact Our Specialist <MessageCircle className="w-4 h-4" />
@@ -378,27 +391,16 @@ export default function ProjectEstimator({ estimatorRef }) {
 
                   {estimate && (
                     <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                        boxShadow: [
-                          '0 0 0 rgba(246,175,53,0)',
-                          '0 0 16px rgba(246,175,53,0.26)',
-                          '0 0 0 rgba(246,175,53,0)',
-                        ],
-                      }}
-                      transition={{
-                        opacity: { duration: 0.4, ease: 'easeOut' },
-                        y: { duration: 0.4, ease: 'easeOut' },
-                        boxShadow: { duration: 1, ease: 'easeInOut', delay: 0.4, repeat: 1 },
-                      }}
-                      className="mt-4 p-4 bg-transparent rounded-xl border border-[#f6af35]/40 backdrop-blur-[1px]"
+                      key={`${sel.websiteType || 'none'}-${sel.designApproach || 'none'}`}
+                      initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.4, ease: 'easeOut' }}
+                      className="mt-4 p-4 bg-[#fd85fd] rounded-2xl border border-[#f59e0b]/30 shadow-[0_8px_20px_rgba(245,158,11,0.12)] animate-premium-glow-once"
                     >
                       <div className="flex gap-2">
                         <Sparkles className="w-4 h-4 text-[#8a5c08] flex-shrink-0 mt-0.5" />
-                        <p className="text-sm text-[#5a3f10]">
-                          <span className="font-semibold text-[#1f2937]">But we can help you build this sooner and at a better price!</span>{' '}
+                        <p className="text-sm bg-gradient-to-b from-[#5a3f10] to-[#9a7a3c] bg-clip-text text-transparent">
+                          <span className="font-semibold bg-gradient-to-b from-[#1f2937] to-[#5f6b7a] bg-clip-text text-transparent">But we can help you build this sooner and at a better price!</span>{' '}
                           Contact our specialist.
                         </p>
                       </div>

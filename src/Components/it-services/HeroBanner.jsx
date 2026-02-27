@@ -11,7 +11,7 @@ const floatingIcons = [
   { icon: Lock, position: 'bottom-12 left-16', delay: 1.5 },
 ];
 
-export default function HeroBanner({ onScrollToEstimator }) {
+export default function HeroBanner({ onScrollToEstimator, onScrollToServices }) {
   return (
     <section className="relative min-h-screen bg-white overflow-hidden pt-32 pb-20 lg:pt-40 px-6 lg:px-8">
       {/* Subtle background shapes */}
@@ -77,6 +77,7 @@ export default function HeroBanner({ onScrollToEstimator }) {
               <Button 
                 size="lg"
                 variant="outline"
+                onClick={onScrollToServices}
                 className="border-2 border-[#000066] text-[#000066] hover:bg-[#000066] hover:text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
               >
                 Explore Our Services

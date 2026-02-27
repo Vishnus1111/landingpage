@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import NavbarIT from '@/components/it-services/NavbarIT';
 import HeroBanner from '@/components/it-services/HeroBanner';
 import TrustStripIT from '@/components/it-services/TrustStripIT';
@@ -15,6 +15,10 @@ export default function ITServices() {
   const estimatorRef = useRef(null);
   const servicesRef = useRef(null);
   const [showEstimator, setShowEstimator] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, []);
 
   const scrollToEstimator = () => {
     estimatorRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -33,7 +37,7 @@ export default function ITServices() {
       <HeroBanner onScrollToEstimator={() => {
         setShowEstimator(true);
         setTimeout(() => estimatorRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
-      }} />
+      }} onScrollToServices={() => servicesRef.current?.scrollIntoView({ behavior: 'smooth' })} />
       <TrustStripIT />
       <div ref={servicesRef}>
         <ServicesGrid onWebsiteDevYes={handleWebsiteDevYes} />

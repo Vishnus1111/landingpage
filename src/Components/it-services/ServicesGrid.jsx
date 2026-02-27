@@ -93,7 +93,7 @@ export default function ServicesGrid({ onWebsiteDevYes }) {
   const [view, setView] = useState('grid');
 
   return (
-    <section className="py-20 px-6 lg:px-12 bg-[#f8f5f8]">
+    <section id="services" className="py-20 px-6 lg:px-12 bg-[#f8f5f8]">
       <div className="container mx-auto max-w-6xl">
         <AnimatePresence mode="wait">
           {view === 'grid' && (

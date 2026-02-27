@@ -32,7 +32,7 @@ const approaches = [
 
 export default function DesignApproachesSection() {
   return (
-    <section className="py-20 px-6 lg:px-12 bg-white">
+    <section className="py-20 px-6 lg:px-12 bg-[linear-gradient(180deg,_#F8FAFC,_#EEF2FF)]">
       <div className="container mx-auto max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
           <p className="text-sm font-semibold text-[#1a8a6e] tracking-wider uppercase mb-3">Development Approaches</p>

@@ -16,7 +16,7 @@ const websiteTypes = [
 
 export default function WebsiteTypesSection() {
   return (
-    <section className="py-20 px-6 lg:px-12 bg-[#f8f9fb]">
+    <section id="website-types" className="py-20 px-6 lg:px-12 bg-[#f8f9fb]">
       <div className="container mx-auto max-w-7xl">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
           <p className="text-sm font-semibold text-[#1a8a6e] tracking-wider uppercase mb-3">Website Types</p>

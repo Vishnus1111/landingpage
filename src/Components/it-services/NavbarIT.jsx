@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
     { label: "Services", href: "#services" },
-    { label: "Why Us", href: "#why-us" },
-    { label: "Who We Serve", href: "#who-we-serve" },
-    { label: "Contact", href: "#contact" }
+    { label: "Website Types", href: "#website-types" },
+    { label: "Our Process", href: "#our-process" },
+    { label: "Contact", href: "#contact-section" }
 ];
 
 export default function NavbarIT() {
