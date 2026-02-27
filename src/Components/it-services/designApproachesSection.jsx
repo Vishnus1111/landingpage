@@ -41,12 +41,12 @@ export default function DesignApproachesSection() {
           <p className="text-base text-gray-500 max-w-2xl mx-auto">Flexible approaches to match your goals and investment — from budget-friendly templates to fully custom builds.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 items-start">
+        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
           {approaches.map((a, i) => (
             <motion.div key={a.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className={cn("relative rounded-2xl p-8 transition-all duration-300 border-2",
+              className={cn("relative rounded-2xl p-8 transition-all duration-300 border-2 h-full flex flex-col",
                 a.featured
-                  ? "bg-[#000066] text-white border-[#000066] shadow-xl scale-[1.03]"
+                  ? "bg-[#000066] text-white border-[#000066] shadow-xl"
                   : "bg-white border-gray-100 shadow-sm hover:shadow-md hover:border-[#e79d1a]/40"
               )}>
               {a.featured && (
@@ -65,7 +65,7 @@ export default function DesignApproachesSection() {
               <p className={cn("text-sm font-semibold mb-4", a.featured ? "text-[#e79d1a]" : "text-[#1a8a6e]")}>{a.subtitle}</p>
               <p className={cn("text-sm mb-6 leading-relaxed", a.featured ? "text-blue-200" : "text-gray-500")}>{a.description}</p>
 
-              <div className="space-y-4 mb-6">
+              <div className="space-y-4 mb-6 flex-1">
                 <div>
                   <p className={cn("text-xs font-semibold uppercase tracking-wider mb-2", a.featured ? "text-blue-300" : "text-gray-400")}>Advantages</p>
                   <ul className="space-y-1.5">
@@ -94,7 +94,7 @@ export default function DesignApproachesSection() {
                 "{a.verdict}"
               </div>
 
-              <div className={cn("pt-5 border-t flex justify-between text-sm", a.featured ? "border-white/10" : "border-gray-100")}>
+              <div className={cn("mt-auto pt-5 border-t flex justify-between text-sm", a.featured ? "border-white/10" : "border-gray-100")}>
                 <div>
                   <p className={a.featured ? "text-blue-300" : "text-gray-400"}>Investment</p>
                   <p className={cn("font-bold mt-0.5", a.featured ? "text-white" : "text-[#000066]")}>{a.priceRange}</p>
