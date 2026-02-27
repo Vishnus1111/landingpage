@@ -5,7 +5,7 @@ import TrustStripIT from '@/Components/it-services/TrustStripIT';
 import ServicesGrid from '@/Components/it-services/ServicesGrid';
 import ProjectEstimator from '@/Components/it-services/ProjectEstimator';
 import WebsiteTypesSection from '@/Components/it-services/WebsiteTypesSection';
-import DesignApproachesSection from '@/Components/it-services/DesignApproachesSection';
+import DesignApproachesSection from '@/Components/it-services/designApproachesSection';
 import ProcessSection from '@/Components/it-services/ProcessSection';
 import PartnershipCTAIT from '@/Components/it-services/PartnershipCTAIT';
 import FooterIT from '@/Components/it-services/FooterIT';
@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ITServices() {
   const estimatorRef = useRef(null);
-  const servicesRef = useRef(null);
+  const servicesRef = useRef(null); 
   const [showEstimator, setShowEstimator] = useState(false);
 
   useEffect(() => {

@@ -1,16 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, MessageSquare, Palette, Code, HeartHandshake } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/Components/ui/button';
-
-const processVisualSteps = [
-  { id: 1, label: 'Understand', icon: MessageSquare, stroke: '#22d3ee', iconLeft: 'left-[10%]' },
-  { id: 2, label: 'Design', icon: Palette, stroke: '#3b45f2', iconLeft: 'left-[36.5%]' },
-  { id: 3, label: 'Develop', icon: Code, stroke: '#8b3df8', iconLeft: 'left-[63.5%]' },
-  { id: 4, label: 'Support', icon: HeartHandshake, stroke: '#f43fa8', iconLeft: 'left-[90%]' },
-];
-
-const flowPathD = 'M 146 156 C 208 156, 220 202, 282 156 S 416 110, 478 156 S 612 202, 674 156 S 708 110, 770 156';
+import itHeroImage from '../../../asset/ithero.png';
 
 export default function HeroBanner({ onScrollToEstimator, onScrollToServices }) {
   return (
@@ -66,78 +58,18 @@ export default function HeroBanner({ onScrollToEstimator, onScrollToServices }) 
             </div>
           </motion.div>
 
-          {/* RIGHT — Process Infographic Visual */}
+          {/* RIGHT — Hero Image */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 1, delay: 0.3 }} 
             className="relative hidden lg:flex items-center justify-center h-[500px]"
           >
-            <div className="relative w-full max-w-[640px] h-[330px]">
-              <svg
-                className="absolute inset-x-0 top-[22px] w-full h-[190px]"
-                viewBox="0 0 900 260"
-                preserveAspectRatio="xMidYMid meet"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient id="heroFlowGradient" x1="146" y1="156" x2="770" y2="156" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#22d3ee" />
-                    <stop offset="36%" stopColor="#3b45f2" />
-                    <stop offset="70%" stopColor="#8b3df8" />
-                    <stop offset="100%" stopColor="#ec4899" />
-                  </linearGradient>
-                  <filter id="heroDotGlow" x="-250%" y="-250%" width="500%" height="500%">
-                    <feGaussianBlur stdDeviation="3.5" result="blur" />
-                  </filter>
-                </defs>
-
-                <path id="heroFlowPath" d={flowPathD} fill="none" stroke="url(#heroFlowGradient)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-
-                <circle cx="282" cy="156" r="7" fill="#ffffff" stroke="url(#heroFlowGradient)" strokeWidth="3" />
-                <circle cx="478" cy="156" r="7" fill="#ffffff" stroke="url(#heroFlowGradient)" strokeWidth="3" />
-                <circle cx="674" cy="156" r="7" fill="#ffffff" stroke="url(#heroFlowGradient)" strokeWidth="3" />
-
-                <circle cx="0" cy="0" r="8" fill="#fff7bf" opacity="0.8" filter="url(#heroDotGlow)">
-                  <animateMotion dur="5.2s" repeatCount="indefinite" rotate="auto" path={flowPathD} />
-                </circle>
-                <circle cx="0" cy="0" r="4" fill="#ffffff">
-                  <animateMotion dur="5.2s" repeatCount="indefinite" rotate="auto" path={flowPathD} />
-                </circle>
-              </svg>
-
-              {processVisualSteps.map((step, index) => {
-                const StepIcon = step.icon;
-                return (
-                  <motion.div
-                    key={step.id}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.45 + index * 0.12 }}
-                    className={`absolute top-0 ${step.iconLeft} -translate-x-1/2 w-[130px] flex flex-col items-center text-center`}
-                  >
-                    <div className="relative w-24 h-24">
-                      <div
-                        className="absolute inset-0 rounded-full border-[3px]"
-                        style={{ borderColor: step.stroke, borderTopColor: 'transparent', transform: 'rotate(-28deg)' }}
-                      />
-                      <div className="absolute inset-[12px] rounded-full border-[3px]" style={{ borderColor: step.stroke }} />
-                      <div className="absolute inset-[24px] rounded-full border border-gray-100 bg-white flex items-center justify-center shadow-sm">
-                        <StepIcon className="w-6 h-6 text-[#1f2937]" strokeWidth={2.2} />
-                      </div>
-                    </div>
-
-                    <div className="mt-4 text-[17px] font-bold text-[#000066]">{step.label}</div>
-                  </motion.div>
-                );
-              })}
-
-              <div className="pointer-events-none absolute inset-0 -z-10">
-                <div className="absolute top-4 left-10 w-24 h-24 rounded-full bg-[#22d3ee]/15 blur-2xl" />
-                <div className="absolute top-6 right-8 w-24 h-24 rounded-full bg-[#a855f7]/15 blur-2xl" />
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-28 h-28 rounded-full bg-[#ec4899]/10 blur-2xl" />
-              </div>
-            </div>
+            <img
+              src={itHeroImage}
+              alt="IT services hero"
+              className="w-full max-w-[640px] h-auto object-contain"
+            />
           </motion.div>
         </div>
       </div>
