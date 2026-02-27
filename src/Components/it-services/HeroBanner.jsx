@@ -2,15 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/Components/ui/button';
-import itHeroImage from '../../../asset/ithero.png';
+import itHeroImage from '../../../asset/ithero.jpeg';
 
 export default function HeroBanner({ onScrollToEstimator, onScrollToServices }) {
   return (
     <section className="relative min-h-screen bg-white overflow-hidden pt-32 pb-20 lg:pt-40 px-6 lg:px-8">
-      {/* Subtle background shapes */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#f0f4ff] -translate-y-1/4 translate-x-1/4 blur-3xl opacity-60" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#fff8ee] translate-y-1/4 -translate-x-1/4 blur-3xl opacity-60" />
-
       <div className="relative max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
