@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/Components/ui/button";
 import { Menu, X } from "lucide-react";
+import logoImage from '../../../asset/logo.jpg';
 
 const navLinks = [
     { label: "Services", href: "#services" },
@@ -46,7 +47,7 @@ export default function Navbar() {
                         {/* Logo */}
                         <a href="#" className="flex items-center gap-2">
                             <img 
-                                src="/asset/logo.jpeg" 
+                                src={logoImage}
                                 alt="Meilleur Analytics Private Limited Logo"
                                 className="w-[38px] h-[38px] rounded-full object-cover border border-[#00B99E]"
                             />

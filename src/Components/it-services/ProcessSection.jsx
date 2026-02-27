@@ -45,14 +45,14 @@ export default function ProcessSection() {
         </motion.div>
 
         <div className="relative">
-          <div className="hidden lg:block absolute top-16 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-[#eef1ff] via-[#000066]/20 to-[#eef1ff]" />
+          <div className="hidden sm:block absolute top-[66px] sm:left-[calc(25%-0.5rem)] sm:right-[calc(25%-0.5rem)] lg:left-[calc(12.5%-0.75rem)] lg:right-[calc(12.5%-0.75rem)] h-[5px] rounded-full bg-[linear-gradient(90deg,#fff3a3_0%,#6366F1_100%)] transition-all duration-300 ease-out origin-center hover:scale-x-[1.04] hover:shadow-[0_0_14px_rgba(255,243,163,0.72)] z-0" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, i) => (
               <motion.div key={step.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }}>
-                <div className="group flex flex-col items-center text-center">
+                <div className="group relative z-0 flex flex-col items-center text-center transform-gpu transition-all duration-300 ease-out hover:z-10 hover:-translate-y-[6px] hover:scale-[1.06]">
                   <div className="relative mb-6">
                     <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm"
+                      className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm transition-all duration-300 ease-out group-hover:scale-[1.08] group-hover:drop-shadow-[0_6px_12px_rgba(0,0,0,0.12)]"
                       style={{ backgroundColor: step.iconBg }}
                     >
                       <step.icon className="w-7 h-7" style={{ color: step.iconColor }} />
@@ -61,8 +61,8 @@ export default function ProcessSection() {
                       <span className="text-xs font-bold text-[#000066]">{i + 1}</span>
                     </div>
                   </div>
-                  <h3 className="text-lg font-bold text-[#000066] mb-2">{step.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-[#000066] mb-2 transition-all duration-300 ease-out group-hover:scale-[1.04]">{step.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed transition-all duration-300 ease-out group-hover:scale-[1.03]">{step.description}</p>
                 </div>
               </motion.div>
             ))}
