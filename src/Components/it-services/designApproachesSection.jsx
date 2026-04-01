@@ -35,9 +35,9 @@ export default function DesignApproachesSection() {
     <section className="py-20 px-6 lg:px-12 bg-[linear-gradient(180deg,_#F8FAFC,_#EEF2FF)]">
       <div className="container mx-auto max-w-6xl">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
-          <p className="text-sm font-semibold text-[#1a8a6e] tracking-wider uppercase mb-3">Our Process</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#000066] mb-3">Our Proven Process for Turning Ideas into Reality</h2>
-          <div className="w-12 h-1 bg-[#1a8a6e] rounded-full mx-auto mb-4" />
+          <p className="text-sm font-semibold text-[#1a8a6e] tracking-wider uppercase mb-3">Development Approaches</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#000066] mb-3">Smart Development Paths for Every Need</h2>
+          <div className="w-12 h-1 bg-gradient-to-r from-[#f6af35] to-[#ffedb2] rounded-full mx-auto mb-4" />
           <p className="text-base text-gray-500 max-w-2xl mx-auto">Flexible approaches to match your goals and investment — from budget-friendly templates to fully custom builds.</p>
         </motion.div>
 

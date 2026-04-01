@@ -6,8 +6,25 @@ import itHeroImage from '../../../asset/ithero.jpeg';
 
 export default function HeroBanner({ onScrollToEstimator, onScrollToServices }) {
   return (
-    <section className="relative min-h-screen bg-white overflow-hidden pt-32 pb-20 lg:pt-40 px-6 lg:px-8">
-      <div className="relative max-w-7xl mx-auto">
+    <section className="relative min-h-screen overflow-hidden pt-32 pb-20 lg:pt-40 px-6 lg:px-8">
+      <div className="absolute inset-0 z-0">
+        <video
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/asset/itherovideo.mp4" type="video/mp4" />
+          <source src="/asset/itherovideo.webm" type="video/webm" />
+          <source src="/asset/itherovideo.mov" type="video/quicktime" />
+        </video>
+      </div>
+
+      <div className="absolute inset-0 z-0 bg-white/25" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* LEFT */}
           <motion.div 
