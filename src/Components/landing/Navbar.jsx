@@ -36,10 +36,10 @@ export default function Navbar() {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.6 }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-gray-100 ${
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                     isScrolled 
-                        ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-gray-100/50' 
-                        : 'bg-transparent'
+                        ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-gray-100/50 border-b border-gray-100' 
+                        : 'bg-transparent border-b border-white/20'
                 }`}
             >
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -51,10 +51,10 @@ export default function Navbar() {
                                 alt="Meilleur Analytics Private Limited Logo"
                                 className="w-[38px] h-[38px] rounded-full object-cover border border-[#00B99E]"
                             />
-                            <span className="font-poppins text-[19px] font-bold text-[#000066]">
+                            <span className={`font-poppins text-[19px] font-bold ${isScrolled ? 'text-[#000066]' : 'text-white/90'}`}>
                                 Meilleur
                             </span>
-                            <span className="font-poppins text-[19px] font-light text-[#00B99E]">
+                            <span className={`font-poppins text-[19px] font-light ${isScrolled ? 'text-[#00B99E]' : 'text-[#5eead4]'}`}>
                                 Analytics
                             </span>
                         </a>
@@ -65,7 +65,9 @@ export default function Navbar() {
                                 <a
                                     key={index}
                                     href={link.href}
-                                    className="text-gray-600 hover:text-[#000066] font-medium text-sm transition-colors relative group"
+                                    className={`font-medium text-sm transition-colors relative group ${
+                                        isScrolled ? 'text-gray-700 hover:text-[#000066]' : 'text-white/90 hover:text-white'
+                                    }`}
                                 >
                                     {link.label}
                                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00B99E] group-hover:w-full transition-all duration-300" />
@@ -86,7 +88,7 @@ export default function Navbar() {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="lg:hidden p-2 text-[#000066]"
+                            className={`lg:hidden p-2 ${isScrolled ? 'text-[#000066]' : 'text-white/90'}`}
                         >
                             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                         </button>

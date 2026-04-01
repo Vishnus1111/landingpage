@@ -22,8 +22,9 @@ export default function Hero() {
         <section className="relative min-h-screen overflow-hidden">
             <div
                 className="absolute inset-0 bg-cover bg-no-repeat bg-center pointer-events-none"
-                style={{ backgroundImage: "url('/asset/homehero.jpeg?v=3')", backgroundSize: '100% 100%' }}
+                style={{ backgroundImage: "url('/asset/homehero.png?v=1')", backgroundSize: '100% 100%' }}
             />
+            <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -35,18 +36,18 @@ export default function Hero() {
                         className="space-y-8"
                     >
                         <div className="space-y-6">
-                            <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#000066] leading-tight tracking-tight">
+                            <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#f8fafc] leading-tight tracking-tight">
                                 Welcome to<br />
-                                <span className="bg-gradient-to-r from-[#000066] to-[#00B99E] bg-clip-text text-transparent">
+                                <span className="text-[#f8fafc]">
                                     Meilleur Analytics Private Limited
                                 </span>
                             </h1>
                             
-                            <h2 className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+                            <h2 className="text-xl md:text-2xl text-[#cbd5e1] font-light leading-relaxed">
                                 Offshore Accounting & Analytics Firm - Your Transformation Partner
                             </h2>
                             
-                            <p className="text-gray-500 text-lg leading-relaxed max-w-xl">
+                            <p className="text-white/75 text-lg leading-relaxed max-w-xl">
                                 Meilleur Analytics is powered by highly energetic, qualified professionals delivering tailored solutions across Financial Services, IT Services, and Training & Development. We combine domain expertise, technology, and a client-centric approach to help businesses and individuals unlock data-driven success.
                             </p>
                         </div>
@@ -64,7 +65,7 @@ export default function Hero() {
                                 onClick={scrollToServices}
                                 size="lg"
                                 variant="outline"
-                                className="border-2 border-[#000066] text-[#000066] hover:bg-[#000066] hover:text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
+                                className="border-2 border-white/80 text-white hover:bg-white/10 hover:border-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
                             >
                                 Explore Our Services
                             </Button>
