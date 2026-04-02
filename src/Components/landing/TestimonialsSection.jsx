@@ -106,8 +106,12 @@ export default function TestimonialsSection() {
               <div className="flex items-center justify-between pt-5 border-t border-[#000066]/6">
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-black font-serif shrink-0"
-                    style={{ background: `linear-gradient(135deg, ${t.tagColor}, ${t.tagColor === "#15C0A7" ? "#8DE3D7" : "#003399"})` }}
+                    className="w-10 h-10 flex items-center justify-center text-white text-sm font-black font-serif shrink-0 relative"
+                    style={{
+                      background: `linear-gradient(135deg, ${t.tagColor}, ${t.tagColor === "#15C0A7" ? "#8DE3D7" : "#003399"})`,
+                      clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
+                      boxShadow: `0 0 12px ${t.tagColor}40, inset 0 0 8px ${t.tagColor}30`,
+                    }}
                   >
                     {t.client.charAt(0)}
                   </div>

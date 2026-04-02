@@ -77,8 +77,11 @@ export default function ServicesSection() {
                                 {/* Decorative gradient blob */}
                                 <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
                                 
-                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg`}>
-                                    <service.icon className="w-7 h-7 text-white" />
+                                <div
+                                  className={`w-14 h-14 bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}
+                                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
+                                >
+                                  <service.icon className="w-7 h-7 text-white" />
                                 </div>
 
                                 <h3 className="text-2xl font-bold text-[#000066] mb-3">

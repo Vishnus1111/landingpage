@@ -7,14 +7,14 @@ import {
 } from "lucide-react";
 
 const challenges = [
-    { icon: Globe, text: "Website performance and scalability problems" },
-    { icon: Zap, text: "User experience and conversion optimization" },
-    { icon: Shield, text: "Website security and maintenance" },
-    { icon: GraduationCap, text: "HR training program effectiveness" },
-    { icon: UserCheck, text: "Employee skill gaps and onboarding" },
-    { icon: Heart, text: "Talent retention and development" },
-    { icon: BookOpen, text: "Learning management and tracking" },
-    { icon: RefreshCw, text: "Organizational change management" },
+    { icon: Globe, text: "Website Performance" },
+    { icon: Shield, text: "Website Security" },
+    { icon: UserCheck, text: "Employee Skill Gaps" },
+    { icon: BookOpen, text: "Learning Management" },
+    { icon: Zap, text: "User Experience" },
+    { icon: GraduationCap, text: "HR Training" },
+    { icon: Heart, text: "Talent Retention" },
+    { icon: RefreshCw, text: "Organizational Change" },
 ];
 
 const responses = [
@@ -24,6 +24,12 @@ const responses = [
 ];
 
 export default function ChallengesSection() {
+    const honeycombRows = [
+        challenges.slice(0, 3),
+        challenges.slice(3, 5),
+        challenges.slice(5, 8),
+    ];
+
     return (
         <section
             id="challenges"
@@ -51,18 +57,6 @@ export default function ChallengesSection() {
                     pointerEvents: "none",
                 }}
             />
-            {/* Grid pattern */}
-            <div style={{ position: "absolute", inset: 0, opacity: 0.06, pointerEvents: "none" }}>
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="challenges-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#9EE8DD" strokeWidth="1"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#challenges-grid)" />
-                </svg>
-            </div>
-
             {/* All content - explicit relative + high z-index to sit above decorations */}
             <div className="relative max-w-7xl mx-auto px-6 lg:px-8" style={{ zIndex: 10 }}>
                 {/* Section Header */}
@@ -97,37 +91,41 @@ export default function ChallengesSection() {
                         >
                             Are You Facing These Issues?
                         </h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {challenges.map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 15 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    whileHover={{
-                                        boxShadow: "0 0 0 1px rgba(21, 192, 167, 0.45), 0 0 20px rgba(21, 192, 167, 0.45), 0 0 40px rgba(21, 192, 167, 0.22)",
-                                        borderColor: "rgba(21, 192, 167, 0.65)",
-                                    }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.4, delay: 0.05 * i }}
-                                    className="flex items-start gap-3 p-4 rounded-xl"
-                                    style={{
-                                        background: "rgba(255,255,255,0.07)",
-                                        border: "1px solid rgba(255,255,255,0.12)",
-                                    }}
+                        <div className="flex flex-col items-center sm:items-start">
+                            {honeycombRows.map((row, rowIndex) => (
+                                <div
+                                    key={rowIndex}
+                                    className={`flex gap-3 sm:gap-4 ${rowIndex > 0 ? "-mt-6 sm:-mt-8" : ""} ${rowIndex === 1 ? "sm:ml-16" : ""}`}
                                 >
-                                    <div
-                                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
-                                        style={{ background: "rgba(0,185,158,0.2)" }}
-                                    >
-                                        <item.icon className="w-4 h-4" style={{ color: "#9EE8DD" }} />
-                                    </div>
-                                    <span
-                                        className="text-sm leading-relaxed font-light"
-                                        style={{ color: "rgba(255,255,255,0.90)" }}
-                                    >
-                                        {item.text}
-                                    </span>
-                                </motion.div>
+                                    {row.map((item, itemIndex) => {
+                                        const i = rowIndex * 3 + itemIndex;
+                                        return (
+                                            <motion.div
+                                                key={`${item.text}-${i}`}
+                                                initial={{ opacity: 0, y: 15 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.4, delay: 0.05 * i }}
+                                                className="group w-[145px] h-[126px] sm:w-[160px] sm:h-[138px] p-3 sm:p-4 flex flex-col items-center justify-center text-center"
+                                                style={{
+                                                    clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
+                                                    background: "#000033",
+                                                    border: "2px solid #008080",
+                                                    transition: "background-color 300ms ease, color 300ms ease, transform 300ms ease",
+                                                }}
+                                                whileHover={{
+                                                    backgroundColor: "#008080",
+                                                    scale: 1.03,
+                                                }}
+                                            >
+                                                <item.icon className="w-5 h-5 mb-2 text-[#9EE8DD] group-hover:text-[#000033] transition-colors duration-300" />
+                                                <span className="text-xs sm:text-sm leading-tight font-medium text-[#f1f5f9] group-hover:text-[#000033] transition-colors duration-300">
+                                                    {item.text}
+                                                </span>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
                             ))}
                         </div>
                     </motion.div>

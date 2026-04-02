@@ -96,11 +96,38 @@ function PremiumDonut() {
   );
 }
 
+// Hexagon generator for large floating accents
+function HexagonAccent({ size = 400, top = '0', right = '0', bottom = 'auto', left = 'auto', color = '#15C0A7', opacity = 0.05 }) {
+  return (
+    <div
+      className="absolute -z-10 pointer-events-none"
+      style={{
+        top,
+        right,
+        bottom,
+        left,
+        width: `${size}px`,
+        height: `${size}px`,
+        opacity,
+        filter: 'blur(40px)',
+      }}
+    >
+      <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.05))' }}>
+        <polygon
+          points="50,0 100,25 100,75 50,100 0,75 0,25"
+          fill={color}
+          strokeWidth="0"
+        />
+      </svg>
+    </div>
+  );
+}
+
 export default function DifferentiatorsSection() {
   return (
     <section id="integrated-advantage" className="pt-[4.9rem] pb-28 lg:pt-[6.3rem] lg:pb-36 relative overflow-hidden bg-[#F9F9FB]">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#9EE8DD]/15 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#000066]/4 rounded-full blur-3xl -z-10" />
+      <HexagonAccent size={500} top="-120px" right="-150px" color="#15C0A7" opacity={0.06} />
+      <HexagonAccent size={350} bottom="-100px" left="-120px" color="#000066" opacity={0.04} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div

@@ -54,7 +54,7 @@ function ServiceCard({ service, onClick }) {
       <div className="relative z-10">
         {/* Icon */}
         <div
-          className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${
+          className={`w-12 h-12 flex items-center justify-center mb-5 transition-all duration-300 hover:scale-105 ${
             service.id === 'website' || service.id === 'testing'
               ? 'bg-gradient-to-br from-[#000066] to-[#000066]/80 shadow-lg'
               : service.id === 'app'
@@ -63,6 +63,7 @@ function ServiceCard({ service, onClick }) {
               ? 'bg-gradient-to-br from-[#fff4cc] via-[#ffe89c] to-[#e2a31c] shadow-lg'
               : 'bg-[#eef1ff] group-hover:bg-[#fff3d6]'
           }`}
+          style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
         >
           <service.icon
             className={`w-6 h-6 transition-colors duration-300 ${
