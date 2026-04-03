@@ -3,6 +3,33 @@
 @tailwind utilities;
 
 @layer utilities {
+	@keyframes smoothFloatPauseLoop {
+		0% {
+			transform: translateY(20px);
+			opacity: 0.5;
+		}
+		15% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
+		65% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
+		85% {
+			transform: translateY(-15px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(20px);
+			opacity: 0;
+		}
+	}
+
+	.animate-float-loop {
+		animation: smoothFloatPauseLoop 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+	}
+
 	@keyframes premiumGlowPulse {
 		0% {
 			box-shadow: 0 8px 20px rgba(245, 158, 11, 0.12);

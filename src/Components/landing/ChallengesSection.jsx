@@ -106,7 +106,9 @@ export default function ChallengesSection() {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
                                                 transition={{ duration: 0.4, delay: 0.05 * i }}
-                                                className="group w-[145px] h-[126px] sm:w-[160px] sm:h-[138px] p-3 sm:p-4 flex flex-col items-center justify-center text-center"
+                                                className={`group w-[145px] h-[126px] sm:w-[160px] sm:h-[138px] p-3 sm:p-4 flex flex-col items-center justify-center text-center ${
+                                                    item.text === "Learning Management" || item.text === "User Experience" ? "translate-x-[5px]" : ""
+                                                }`}
                                                 style={{
                                                     clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
                                                     background: "#000033",

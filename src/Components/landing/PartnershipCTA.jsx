@@ -15,26 +15,6 @@ export default function PartnershipCTA() {
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-0 w-96 h-96 bg-[#00B99E] rounded-full opacity-5 blur-3xl transform -translate-x-1/2 -translate-y-1/2" />
                 <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#9EE8DD] rounded-full opacity-5 blur-3xl transform translate-x-1/2 translate-y-1/2" />
-                
-                {/* Hexagon outline accents */}
-                <motion.div 
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-0 right-0 w-80 h-80 opacity-4 pointer-events-none"
-                >
-                  <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,255,255,0.05))' }}>
-                    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/20" />
-                  </svg>
-                </motion.div>
-                <motion.div 
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                    className="absolute bottom-0 left-0 w-96 h-96 opacity-3 pointer-events-none"
-                >
-                  <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ filter: 'drop-shadow(0 10px 30px rgba(255,255,255,0.05))' }}>
-                    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor" strokeWidth="0.8" className="text-white/15" />
-                  </svg>
-                </motion.div>
             </div>
 
             <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">

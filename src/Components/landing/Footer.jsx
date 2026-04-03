@@ -4,8 +4,8 @@ import { Mail, Linkedin, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#000066] pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <footer className="relative bg-[#000066] pt-16 pb-8 overflow-hidden">
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand */}
                     <motion.div

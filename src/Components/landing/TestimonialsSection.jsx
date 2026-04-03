@@ -88,11 +88,17 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="group relative bg-white rounded-2xl p-8 border border-[#000066]/8 shadow-sm hover:shadow-xl hover:shadow-[#00B99E]/10 hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col"
+              className="group relative bg-white p-8 border border-[#000066]/8 shadow-sm hover:shadow-xl hover:shadow-[#00B99E]/10 hover:-translate-y-2 transition-all duration-300 overflow-hidden flex flex-col"
+              style={{ clipPath: "polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%)" }}
             >
               <div
-                className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
+                className="absolute top-0 left-0 right-0 h-[3px]"
                 style={{ background: "linear-gradient(90deg, #15C0A7, #8DE3D7)" }}
+              />
+
+              <div
+                className="absolute right-0 top-0 w-9 h-9 bg-[#00B99E]/12"
+                style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
               />
 
               <div className="mb-5">
@@ -133,7 +139,7 @@ export default function TestimonialsSection() {
               </div>
 
               <div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{ background: "linear-gradient(135deg, rgba(21,192,167,0.03) 0%, rgba(141,227,215,0.06) 100%)" }}
               />
             </motion.div>

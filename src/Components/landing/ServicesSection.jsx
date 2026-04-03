@@ -47,9 +47,22 @@ const services = [
 ];
 
 export default function ServicesSection() {
+    const getCardClipPath = (index) => {
+        if (index === 0) {
+            return 'polygon(22px 0%, 100% 0%, 100% 100%, 0% 100%, 0% 22px)';
+        }
+        if (index === 1) {
+            return 'polygon(0% 0%, 100% 0%, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0% 100%)';
+        }
+        return 'polygon(22px 0%, 100% 0%, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0% 100%, 0% 22px)';
+    };
+
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <section
+            className="relative py-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/asset/homeservice.png?v=1')" }}
+        >
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -71,11 +84,57 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: index * 0.15 }}
-                            className="group"
+                            className={`group ${index === 1 ? 'lg:translate-y-5' : ''} ${index === 2 ? 'lg:-translate-y-5' : ''}`}
                         >
-                            <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg shadow-gray-100/50 border border-gray-100 hover:shadow-2xl hover:shadow-[#00B99E]/10 transition-all duration-500 overflow-hidden">
-                                {/* Decorative gradient blob */}
-                                <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${service.gradient} rounded-full opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
+                            <div
+                                className="relative h-full bg-white p-8 shadow-lg shadow-gray-100/50 border border-gray-100 hover:shadow-2xl hover:shadow-[#00B99E]/10 transition-all duration-500 overflow-hidden"
+                                style={{ clipPath: getCardClipPath(index) }}
+                            >
+                                <div className="absolute inset-0 pointer-events-none">
+                                    <div className="absolute -top-px -left-px w-[78px] h-[78px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[2px]">
+                                        <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <pattern id={`corner-dots-top-${index}`} width="8" height="8" patternUnits="userSpaceOnUse">
+                                                    <circle cx="1.5" cy="1.5" r="1" fill="#FFFFFF" fillOpacity="0.05" />
+                                                </pattern>
+                                            </defs>
+                                            <polygon points="2,2 74,2 2,74" fill="none" stroke="#00B99E" strokeOpacity="0.45" strokeWidth="1.3" />
+                                            <polygon points="0,0 72,0 0,72" fill="#000066" />
+                                            <polygon points="0,0 72,0 0,72" fill={`url(#corner-dots-top-${index})`} />
+                                            <line
+                                                x1="6"
+                                                y1="71"
+                                                x2="71"
+                                                y2="6"
+                                                stroke="#008080"
+                                                strokeWidth="1"
+                                                className="transition-all duration-300 opacity-70 group-hover:opacity-100 group-hover:[filter:drop-shadow(0_0_5px_#00d6d6)]"
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    <div className="absolute -bottom-px -right-px w-[78px] h-[78px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[2px]">
+                                        <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <defs>
+                                                <pattern id={`corner-dots-bottom-${index}`} width="8" height="8" patternUnits="userSpaceOnUse">
+                                                    <circle cx="1.5" cy="1.5" r="1" fill="#FFFFFF" fillOpacity="0.05" />
+                                                </pattern>
+                                            </defs>
+                                            <polygon points="76,76 4,76 76,4" fill="none" stroke="#00B99E" strokeOpacity="0.45" strokeWidth="1.3" />
+                                            <polygon points="76,76 4,76 76,4" fill="#000066" />
+                                            <polygon points="76,76 4,76 76,4" fill={`url(#corner-dots-bottom-${index})`} />
+                                            <line
+                                                x1="7"
+                                                y1="72"
+                                                x2="72"
+                                                y2="7"
+                                                stroke="#008080"
+                                                strokeWidth="1"
+                                                className="transition-all duration-300 opacity-70 group-hover:opacity-100 group-hover:[filter:drop-shadow(0_0_5px_#00d6d6)]"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
                                 
                                 <div
                                   className={`w-14 h-14 bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}
@@ -95,7 +154,10 @@ export default function ServicesSection() {
                                 <ul className="space-y-3 mb-6">
                                     {service.highlights.map((highlight, i) => (
                                         <li key={i} className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-[#00B99E] mt-2 flex-shrink-0" />
+                                            <div
+                                                className="w-2 h-2 bg-[#00B99E] mt-1.5 flex-shrink-0 rotate-45"
+                                                style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
+                                            />
                                             <span className="text-gray-600 text-sm">{highlight}</span>
                                         </li>
                                     ))}
