@@ -36,10 +36,12 @@ export default function Achievements() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="animate-float-loop font-poppins text-4xl md:text-5xl font-bold text-[#000066] mb-4" style={{ willChange: "transform, opacity" }}>
-                        Our Achievements & Impact
-                    </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-[#00B99E] to-[#9EE8DD] mx-auto rounded-full" />
+                    <div className="animate-float-loop" style={{ animationDelay: "0s", willChange: "transform, opacity" }}>
+                        <h2 className="font-poppins text-4xl md:text-5xl font-bold text-[#000066] mb-4">
+                            Our Achievements & Impact
+                        </h2>
+                        <div className="w-20 h-1 bg-gradient-to-r from-[#00B99E] to-[#9EE8DD] mx-auto rounded-full" />
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 gap-[1.05rem]">
