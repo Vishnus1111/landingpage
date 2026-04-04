@@ -56,9 +56,12 @@ function QuoteIcon() {
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="pt-14 pb-28 lg:pt-18 lg:pb-36 relative overflow-hidden bg-[#F9F9FB]">
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-[#9EE8DD]/20 -translate-x-1/3 -translate-y-1/3 blur-3xl -z-10" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#000066]/4 translate-x-1/3 translate-y-1/3 blur-3xl -z-10" />
+    <section
+      id="testimonials"
+      className="pt-14 pb-[5.25rem] lg:pt-18 lg:pb-[6.75rem] relative overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/asset/hometestimonials.png?v=1')" }}
+    >
+      <div className="absolute inset-0 bg-white/72 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
