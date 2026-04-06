@@ -1,21 +1,15 @@
 import React from 'react';
-import Navbar from '@/Components/landing/Navbar';
 import Hero from '@/Components/landing/Hero';
-import TrustStrip from '@/Components/landing/TrustStrip';
-import ServicesSection from '@/Components/landing/ServicesSection';
 import ChallengesSection from '@/Components/landing/ChallengesSection';
-import WhyChoose from '@/Components/landing/WhyChoose';
 import DifferentiatorsSection from '@/Components/landing/DifferentiatorsSection';
 import ResultsSection from '@/Components/landing/ResultsSection';
 import Achievements from '@/Components/landing/Achievements';
 import TestimonialsSection from '@/Components/landing/TestimonialsSection';
-import WhoWeServe from '@/Components/landing/WhoWeServe';
 import PartnershipCTA from '@/Components/landing/PartnershipCTA';
-import Footer from '@/Components/landing/Footer';
 
 export default function Home() {
     return (
-        <div className="min-h-screen bg-white font-inter">
+        <div className="home-page-shell min-h-screen font-inter">
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap');
                 
@@ -27,35 +21,42 @@ export default function Home() {
                     font-family: 'Poppins', sans-serif;
                 }
             `}</style>
-            
-            <Navbar />
-            <Hero />
-            <TrustStrip />
-            <div id="common-business-challenges">
-                <ChallengesSection />
-            </div>
-            <div id="services">
-                <ServicesSection />
-            </div>
-            <div id="why-us">
-                <WhyChoose />
-            </div>
 
-            <DifferentiatorsSection />
+            <div className="home-fixed-bg" aria-hidden="true" />
 
-            <ResultsSection />
+            <div className="relative z-10">
+                <div className="home-timeline-stack">
+                    <div className="home-timeline-line" aria-hidden="true" />
 
-            <Achievements />
+                    <div className="home-card home-card-hero">
+                        <Hero />
+                    </div>
 
-            <TestimonialsSection />
+                    <div id="common-business-challenges" className="home-card">
+                        <ChallengesSection />
+                    </div>
 
-            <div id="who-we-serve">
-                <WhoWeServe />
+                    <div className="home-card">
+                        <DifferentiatorsSection />
+                    </div>
+
+                    <div className="home-card">
+                        <ResultsSection />
+                    </div>
+
+                    <div className="home-card">
+                        <Achievements />
+                    </div>
+
+                    <div className="home-card">
+                        <TestimonialsSection />
+                    </div>
+
+                    <div id="contact" className="home-card home-card-cta">
+                        <PartnershipCTA />
+                    </div>
+                </div>
             </div>
-            <div id="contact">
-                <PartnershipCTA />
-            </div>
-            <Footer />
         </div>
     );
 }

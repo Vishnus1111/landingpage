@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import homeHeroImage from '../../../asset/home.png';
 
 export default function Hero() {
+    const navigate = useNavigate();
+
     const scrollToContact = () => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
@@ -11,66 +14,85 @@ export default function Hero() {
         }
     };
 
-    const scrollToServices = () => {
-        const servicesSection = document.getElementById('services');
-        if (servicesSection) {
-            servicesSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const cards = [
+        {
+            title: "Financial Analytics",
+            description: "Comprehensive accounting & analytics solutions for businesses across sizes and sectors.",
+            clickable: false,
+        },
+        {
+            title: "IT Services",
+            description: "Build reliable websites and mobile apps that scale with you.",
+            clickable: true,
+        },
+        {
+            title: "Talent Lab",
+            description: "Strengthen teams through learning, alignment, and growth.",
+            clickable: false,
+        },
+    ];
 
     return (
-        <section className="relative min-h-screen overflow-hidden">
-            <div
-                className="absolute inset-0 bg-cover bg-no-repeat bg-center pointer-events-none"
-                style={{ backgroundImage: "url('/asset/homehero.png?v=1')", backgroundSize: '100% 100%' }}
-            />
-            <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+        <section
+            className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+            style={{
+                backgroundImage: `url(${homeHeroImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed',
+            }}
+        >
+            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-transparent pointer-events-none" />
 
-            <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 lg:pt-40">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    {/* Left Content */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="space-y-8"
-                    >
-                        <div className="space-y-6">
-                            <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#f8fafc] leading-tight tracking-tight">
-                                Welcome to<br />
-                                <span className="text-[#f8fafc]">
-                                    Meilleur Analytics Private Limited
-                                </span>
-                            </h1>
-                            
-                            <h2 className="text-xl md:text-2xl text-[#cbd5e1] font-light leading-relaxed">
-                                Offshore Accounting & Analytics Firm - Your Transformation Partner
-                            </h2>
-                            
-                            <p className="text-white/75 text-lg leading-relaxed max-w-xl">
-                                Meilleur Analytics is powered by highly energetic, qualified professionals delivering tailored solutions across Financial Services, IT Services, and Training & Development. We combine domain expertise, technology, and a client-centric approach to help businesses and individuals unlock data-driven success.
-                            </p>
-                        </div>
+            <div className="relative w-full max-w-6xl px-6 py-10 lg:py-14">
+                <div className="rounded-2xl shadow-xl p-8 lg:p-12">
+                    <div className="text-center max-w-5xl mx-auto">
+                        <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#000066] leading-tight tracking-tight">
+                            Transform Your Business with Data, Technology & Talent
+                        </h1>
 
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Button 
-                                onClick={scrollToContact}
-                                size="lg"
-                                className="bg-[#00B99E] hover:bg-[#00a88e] text-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-[#00B99E]/20"
-                            >
-                                Talk to an Expert
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button 
-                                onClick={scrollToServices}
-                                size="lg"
-                                variant="outline"
-                                className="border-2 border-white/80 text-white hover:bg-white/10 hover:border-white px-8 py-6 text-lg font-medium rounded-full transition-all duration-300"
-                            >
-                                Explore Our Services
-                            </Button>
+                        <p className="mt-6 text-lg md:text-xl leading-relaxed text-[#4B5563] max-w-4xl mx-auto">
+                            Financial analytics that drive decisions, IT systems that scale, and talent development that transforms—three integrated solutions for business growth.
+                        </p>
+                    </div>
+
+                    <div className="mt-12 lg:mt-14 max-w-5xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                            {cards.map((card) => (
+                                <div
+                                    key={card.title}
+                                    className={`bg-white rounded-xl p-5 border border-[#000066]/8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 ${
+                                        card.clickable ? 'cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,102,0.14)]' : 'cursor-default hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(0,0,0,0.10)]'
+                                    }`}
+                                    onClick={card.clickable ? () => navigate('/it-services') : undefined}
+                                    role={card.clickable ? 'button' : undefined}
+                                    tabIndex={card.clickable ? 0 : undefined}
+                                    onKeyDown={card.clickable ? (e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            navigate('/it-services');
+                                        }
+                                    } : undefined}
+                                >
+                                    <div className="h-28 rounded-lg bg-[#6C5CE7] mb-4" />
+                                    <h3 className="text-xl font-semibold text-[#000066] mb-2">{card.title}</h3>
+                                    <p className="text-[#4B5563] leading-relaxed text-sm md:text-base">{card.description}</p>
+                                    {/* Enable navigation later */}
+                                </div>
+                            ))}
                         </div>
-                    </motion.div>
+                    </div>
+
+                    <div className="mt-10 flex justify-center">
+                        <Button
+                            onClick={scrollToContact}
+                            className="bg-[#000066] hover:bg-[#000055] text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-[#000066]/25"
+                        >
+                            Book Consultation
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </div>
                 </div>
             </div>
         </section>

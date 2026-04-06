@@ -2,6 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+.home-page-shell {
+	position: relative;
+	overflow-x: clip;
+}
+
+.home-fixed-bg {
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(135deg, #5f3dc4 0%, #1f6bff 100%);
+	z-index: 0;
+}
+
+.home-fixed-bg::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='104' viewBox='0 0 120 104'%3E%3Cpolygon points='60,4 112,30 112,74 60,100 8,74 8,30' fill='none' stroke='white' stroke-opacity='0.14' stroke-width='1.5'/%3E%3C/svg%3E");
+	background-size: 120px 104px;
+	opacity: 0.2;
+	pointer-events: none;
+}
+
+.home-timeline-stack {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(80px, 8vw, 120px);
+	padding: clamp(28px, 4vw, 56px) 0 clamp(100px, 10vw, 140px);
+	z-index: 1;
+}
+
+.home-timeline-line {
+	position: absolute;
+	left: 50%;
+	top: clamp(40px, 5vw, 70px);
+	bottom: clamp(100px, 10vw, 140px);
+	width: 2px;
+	transform: translateX(-50%);
+	background: rgba(255, 255, 255, 0.58);
+	z-index: 0;
+	pointer-events: none;
+}
+
+.home-card {
+	position: relative;
+	width: min(1200px, 84vw);
+	margin-inline: auto;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 18px 42px rgba(7, 12, 29, 0.14);
+	overflow: hidden;
+	z-index: 2;
+}
+
+.home-card.home-card-cta {
+	background: url('/asset/homecta.png') center/cover no-repeat;
+	background-attachment: fixed;
+}
+
+.home-card > section,
+.home-card > footer,
+.home-card > div > section,
+.home-card > div > footer {
+	background: transparent !important;
+	border-color: transparent !important;
+}
+
+/* Hero card styling - remove white wrapper layer so Hero background is visible */
+.home-card.home-card-hero {
+	background: transparent !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	margin-inline: 0 !important;
+	overflow: visible !important;
+	padding: 0 !important;
+}
+
+.home-card.home-card-hero > section {
+	background: transparent !important;
+	overflow: visible !important;
+}
+
+@media (max-width: 1024px) {
+	.home-card {
+		width: min(1200px, 90vw);
+		border-radius: 18px;
+	}
+}
+
+@media (max-width: 640px) {
+	.home-card {
+		width: 92vw;
+		border-radius: 16px;
+	}
+
+	.home-timeline-line {
+		left: 50%;
+	}
+}
+
 @layer utilities {
 	@keyframes smoothFloatPauseLoop {
 		0% {

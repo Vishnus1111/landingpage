@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Button } from "@/Components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const stats = [
   { value: 35, suffix: "%", label: "Revenue Growth", description: "Average increase for clients after 12 months" },
@@ -33,6 +35,13 @@ export default function ResultsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="results" className="pt-[4.375rem] pb-28 lg:pt-[5.625rem] lg:pb-36 relative overflow-hidden bg-[#000066]">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#00B99E]/8 translate-x-1/3 -translate-y-1/3" />
@@ -45,12 +54,8 @@ export default function ResultsSection() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight uppercase tracking-wide">
-            Results That Speak{" "}
-            <br className="hidden sm:block" />
-            <span style={{ background: "linear-gradient(90deg,#15C0A7,#8DE3D7)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              for Themselves
-            </span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-black leading-tight uppercase tracking-wide">
+            Results That Speak for Themselves
           </h2>
         </motion.div>
 
@@ -90,6 +95,16 @@ export default function ResultsSection() {
               );
             })}
           </div>
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button
+            onClick={scrollToContact}
+            className="bg-gradient-to-r from-[#000066] to-[#00BFA6] text-white px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-xl hover:shadow-[#00BFA6]/25"
+          >
+            Book Consultation
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>
