@@ -69,23 +69,6 @@
 	border-color: transparent !important;
 }
 
-/* Hero card styling - remove white wrapper layer so Hero background is visible */
-.home-card.home-card-hero {
-	background: transparent !important;
-	box-shadow: none !important;
-	border-radius: 0 !important;
-	width: 100% !important;
-	max-width: 100% !important;
-	margin-inline: 0 !important;
-	overflow: visible !important;
-	padding: 0 !important;
-}
-
-.home-card.home-card-hero > section {
-	background: transparent !important;
-	overflow: visible !important;
-}
-
 @media (max-width: 1024px) {
 	.home-card {
 		width: min(1200px, 90vw);

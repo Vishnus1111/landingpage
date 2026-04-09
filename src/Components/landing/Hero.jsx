@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import homeHeroImage from '../../../asset/home.png';
 
 export default function Hero() {
     const navigate = useNavigate();
@@ -34,17 +33,8 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
-            style={{
-                backgroundImage: `url(${homeHeroImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed',
-            }}
+            className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white"
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-transparent to-transparent pointer-events-none" />
-
             <div className="relative w-full max-w-6xl px-6 py-10 lg:py-14">
                 <div className="rounded-2xl shadow-xl p-8 lg:p-12">
                     <div className="text-center max-w-5xl mx-auto">

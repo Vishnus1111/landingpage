@@ -28,7 +28,7 @@ export default function Home() {
                 <div className="home-timeline-stack">
                     <div className="home-timeline-line" aria-hidden="true" />
 
-                    <div className="home-card home-card-hero">
+                    <div className="home-card">
                         <Hero />
                     </div>
 
