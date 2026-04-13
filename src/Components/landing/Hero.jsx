@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import homeHeroImage from '../../../asset/homehero.png';
 
 export default function Hero() {
     const navigate = useNavigate();
@@ -33,10 +34,16 @@ export default function Hero() {
 
     return (
         <section
-            className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white"
+            className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+            style={{
+                backgroundImage: `linear-gradient(rgba(5, 15, 35, 0.75), rgba(5, 15, 35, 0.85)), url(${homeHeroImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+            }}
         >
             <div className="relative w-full max-w-6xl px-6 py-10 lg:py-14">
-                <div className="rounded-2xl shadow-xl p-8 lg:p-12">
+                <div className="rounded-2xl p-8 lg:p-12">
                     <div className="text-center max-w-5xl mx-auto">
                         <h1 className="font-poppins text-4xl md:text-5xl lg:text-6xl font-bold text-[#000066] leading-tight tracking-tight">
                             Transform Your Business with Data, Technology & Talent

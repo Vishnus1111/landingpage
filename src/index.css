@@ -10,7 +10,7 @@
 .home-fixed-bg {
 	position: fixed;
 	inset: 0;
-	background: linear-gradient(135deg, #5f3dc4 0%, #1f6bff 100%);
+	background: url('/asset/homebg.jpeg') center center / cover no-repeat;
 	z-index: 0;
 }
 
@@ -36,7 +36,7 @@
 .home-timeline-line {
 	position: absolute;
 	left: 50%;
-	top: clamp(40px, 5vw, 70px);
+	top: clamp(220px, 18vw, 300px);
 	bottom: clamp(100px, 10vw, 140px);
 	width: 2px;
 	transform: translateX(-50%);
@@ -59,6 +59,16 @@
 .home-card.home-card-cta {
 	background: url('/asset/homecta.png') center/cover no-repeat;
 	background-attachment: fixed;
+}
+
+.home-card.home-card-hero {
+	background: transparent;
+	box-shadow: none;
+	border-radius: 0;
+	width: 100%;
+	max-width: 100%;
+	margin-inline: 0;
+	overflow: visible;
 }
 
 .home-card > section,
