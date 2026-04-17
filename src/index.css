@@ -56,6 +56,13 @@
 	z-index: 2;
 }
 
+.talent-lab-page .home-card {
+	background: transparent;
+	box-shadow: none;
+	border-radius: 0;
+	overflow: visible;
+}
+
 .home-card.home-card-cta {
 	background: url('/asset/homecta.png') center/cover no-repeat;
 	background-attachment: fixed;
@@ -77,6 +84,35 @@
 .home-card > div > footer {
 	background: transparent !important;
 	border-color: transparent !important;
+}
+
+.gradient-border-card {
+	position: relative;
+	padding: 1px;
+	border-radius: 1rem;
+	background: linear-gradient(90deg, #6eb9fc 0%, #6eb9fc 10%, #cd97df 50%, #fd957d 100%);
+}
+
+.gradient-border-card-inner {
+	height: 100%;
+	border-radius: calc(1rem - 1px);
+	background: #ffffff;
+	padding: 1.25rem;
+}
+
+.team-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.2rem 0.55rem;
+	border-radius: 9999px;
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #4b5563;
+	background: #f8fafc;
+	border: 1px solid #e5e7eb;
 }
 
 @media (max-width: 1024px) {
