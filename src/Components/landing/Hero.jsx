@@ -7,6 +7,10 @@ import homeHeroImage from '../../../asset/homehero.png';
 export default function Hero() {
     const navigate = useNavigate();
 
+    const navigateTo = (route) => {
+        navigate(route);
+    };
+
     const scrollToContact = () => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
@@ -24,11 +28,15 @@ export default function Hero() {
             title: "IT Services",
             description: "Build reliable websites and mobile apps that scale with you.",
             clickable: true,
+            route: '/it-services',
+            imageClickableOnly: false,
         },
         {
             title: "Talent Lab",
             description: "Strengthen teams through learning, alignment, and growth.",
-            clickable: false,
+            clickable: true,
+            route: '/talent-lab',
+            imageClickableOnly: true,
         },
     ];
 
@@ -62,17 +70,30 @@ export default function Hero() {
                                     className={`bg-white rounded-xl p-5 border border-[#000066]/8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 ${
                                         card.clickable ? 'cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,102,0.14)]' : 'cursor-default hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(0,0,0,0.10)]'
                                     }`}
-                                    onClick={card.clickable ? () => navigate('/it-services') : undefined}
-                                    role={card.clickable ? 'button' : undefined}
-                                    tabIndex={card.clickable ? 0 : undefined}
+                                    onClick={card.clickable && !card.imageClickableOnly ? () => navigateTo(card.route) : undefined}
+                                    role={card.clickable && !card.imageClickableOnly ? 'button' : undefined}
+                                    tabIndex={card.clickable && !card.imageClickableOnly ? 0 : undefined}
                                     onKeyDown={card.clickable ? (e) => {
                                         if (e.key === 'Enter' || e.key === ' ') {
                                             e.preventDefault();
-                                            navigate('/it-services');
+                                            if (!card.imageClickableOnly) {
+                                                navigateTo(card.route);
+                                            }
                                         }
                                     } : undefined}
                                 >
-                                    <div className="h-28 rounded-lg bg-[#6C5CE7] mb-4" />
+                                    <div
+                                        className={`h-28 rounded-lg bg-[#6C5CE7] mb-4 ${card.imageClickableOnly ? 'cursor-pointer' : ''}`}
+                                        onClick={card.imageClickableOnly ? () => navigateTo(card.route) : undefined}
+                                        role={card.imageClickableOnly ? 'button' : undefined}
+                                        tabIndex={card.imageClickableOnly ? 0 : undefined}
+                                        onKeyDown={card.imageClickableOnly ? (e) => {
+                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                e.preventDefault();
+                                                navigateTo(card.route);
+                                            }
+                                        } : undefined}
+                                    />
                                     <h3 className="text-xl font-semibold text-[#000066] mb-2">{card.title}</h3>
                                     <p className="text-[#4B5563] leading-relaxed text-sm md:text-base">{card.description}</p>
                                     {/* Enable navigation later */}
