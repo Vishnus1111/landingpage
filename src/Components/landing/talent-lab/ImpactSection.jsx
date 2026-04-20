@@ -4,7 +4,7 @@ import { Quote } from 'lucide-react';
 import CircularProgress from './shared/CircularProgress';
 
 const stats = [
-  { displayValue: '500+', value: 95, maxValue: 100, label: 'Participants Trained' },
+  { displayValue: '500+', value: 100, maxValue: 100, label: 'Participants Trained' },
   { displayValue: '15+', value: 15, maxValue: 100, label: 'Institutions Served' },
   { displayValue: '4', value: 4, maxValue: 100, label: 'Cities Across India' },
   { displayValue: '92%', value: 92, maxValue: 100, label: 'Learner Satisfaction Rate' },

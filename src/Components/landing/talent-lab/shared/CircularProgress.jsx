@@ -31,8 +31,10 @@ export default function CircularProgress({ displayValue, label, size = 180, stro
         />
         <defs>
           <linearGradient id="talentlabGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#000066" />
-            <stop offset="100%" stopColor="#00BFA6" />
+            <stop offset="0%" stopColor="#6eb9fc" />
+            <stop offset="10%" stopColor="#6eb9fc" />
+            <stop offset="50%" stopColor="#cd97df" />
+            <stop offset="100%" stopColor="#fd957d" />
           </linearGradient>
         </defs>
         <text x="50%" y="48%" textAnchor="middle" className="fill-slate-900" fontSize="28" fontWeight="700">

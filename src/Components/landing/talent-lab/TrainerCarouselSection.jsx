@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SectionCard from './shared/SectionCard';
+import mariyamVideo from '../../../../asset/mariyamvideo.mp4';
 
 const trainers = [
   {
@@ -7,6 +8,7 @@ const trainers = [
     role: 'L&D Specialist | Neuroscience of Learning',
     desc: '12+ years across schools, universities, and corporates. Specialist in brain-based learning strategies and capability building at scale.',
     tags: ['SCHOOLS', 'UNIVERSITIES', 'NEUROSCIENCE'],
+    videoSrc: mariyamVideo,
   },
   {
     name: 'Mr. Vimal Velayutham',
@@ -267,6 +269,44 @@ export default function TrainerCarouselSection() {
 }
 
 function VideoPlaceholder({ trainer, isActive }) {
+  if (trainer.videoSrc) {
+    return (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'relative',
+          background: '#0f172a',
+        }}
+      >
+        <video
+          src={trainer.videoSrc}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+
+        {isActive && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: '10px 14px',
+              background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)',
+            }}
+          >
+            <p style={{ color: 'white', fontSize: '12px', fontWeight: 600, margin: 0 }}>{trainer.name}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
