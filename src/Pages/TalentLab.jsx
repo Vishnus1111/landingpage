@@ -1,17 +1,17 @@
 import React from 'react';
-import HeroSection from '@/components/landing/talent-lab/HeroSection';
-import CapabilitySection from '@/components/landing/talent-lab/CapabilitySection';
-import WhyCapabilitySection from '@/components/landing/talent-lab/WhyCapabilitySection';
-import WhoWeServeSection from '@/components/landing/talent-lab/WhoWeServeSection';
-import FrameworkSection from '@/components/landing/talent-lab/FrameworkSection';
-import ModulesSection from '@/components/landing/talent-lab/ModulesSection';
-import HowWeDifferSection from '@/components/landing/talent-lab/HowWeDifferSection';
-import EngagementSection from '@/components/landing/talent-lab/EngagementSection';
-import ImpactSection from '@/components/landing/talent-lab/ImpactSection';
-import TrainerCarouselSection from '@/components/landing/talent-lab/TrainerCarouselSection';
-import TeamSection from '@/components/landing/talent-lab/TeamSection';
-import MoreTeamSection from '@/components/landing/talent-lab/MoreTeamSection';
-import CTASection from '@/components/landing/talent-lab/CTASection';
+import HeroSection from '@/Components/landing/talent-lab/HeroSection';
+import CapabilitySection from '@/Components/landing/talent-lab/CapabilitySection';
+import WhyCapabilitySection from '@/Components/landing/talent-lab/WhyCapabilitySection';
+import WhoWeServeSection from '@/Components/landing/talent-lab/WhoWeServeSection';
+import FrameworkSection from '@/Components/landing/talent-lab/FrameworkSection';
+import ModulesSection from '@/Components/landing/talent-lab/ModulesSection';
+import HowWeDifferSection from '@/Components/landing/talent-lab/HowWeDifferSection';
+import EngagementSection from '@/Components/landing/talent-lab/EngagementSection';
+import ImpactSection from '@/Components/landing/talent-lab/ImpactSection';
+import TrainerCarouselSection from '@/Components/landing/talent-lab/TrainerCarouselSection';
+import TeamSection from '@/Components/landing/talent-lab/TeamSection';
+import MoreTeamSection from '@/Components/landing/talent-lab/MoreTeamSection';
+import CTASection from '@/Components/landing/talent-lab/CTASection';
 
 export default function TalentLab() {
     return (
