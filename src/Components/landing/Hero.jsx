@@ -36,7 +36,7 @@ export default function Hero() {
             description: "Strengthen teams through learning, alignment, and growth.",
             clickable: true,
             route: '/talent-lab',
-            imageClickableOnly: true,
+            imageClickableOnly: false,
         },
     ];
 
