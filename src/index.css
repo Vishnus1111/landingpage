@@ -133,6 +133,10 @@
 	}
 }
 
+.talent-lab-page .home-timeline-line {
+	bottom: calc(clamp(100px, 10vw, 140px) + 120px);
+}
+
 @layer utilities {
 	@keyframes smoothFloatPauseLoop {
 		0% {

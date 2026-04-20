@@ -44,7 +44,7 @@ export default function TrainerCarouselSection() {
     setTimeout(() => {
       setActive(next);
       setDetailsFading(false);
-    }, 300);
+    }, 350);
   };
 
   const goPrev = () => goTo((active - 1 + count) % count);
@@ -89,13 +89,14 @@ export default function TrainerCarouselSection() {
                 left: '0',
                 transform: 'translateX(-64%) scale(0.78)',
                 transformOrigin: 'right center',
-                transition: 'all 0.6s cubic-bezier(0.4,0,0.2,1)',
-                opacity: 0.5,
+                transition: 'transform 750ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 750ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+                opacity: 0.55,
                 filter: 'blur(1px)',
                 zIndex: 3,
                 borderRadius: '16px',
                 overflow: 'hidden',
                 boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                willChange: 'transform, opacity',
               }}
             >
               <VideoPlaceholder trainer={trainers[leftIdx]} isActive={false} />
@@ -109,12 +110,13 @@ export default function TrainerCarouselSection() {
                 aspectRatio: '9/16',
                 left: '50%',
                 transform: 'translateX(-50%) scale(1)',
-                transition: 'all 0.6s cubic-bezier(0.4,0,0.2,1)',
+                transition: 'transform 750ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 750ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 750ms cubic-bezier(0.34, 1.56, 0.64, 1)',
                 opacity: 1,
                 zIndex: 10,
                 borderRadius: '16px',
                 overflow: 'hidden',
                 boxShadow: '0 24px 64px rgba(99,102,241,0.3), 0 8px 24px rgba(0,0,0,0.18)',
+                willChange: 'transform, opacity, box-shadow',
               }}
             >
               <VideoPlaceholder trainer={trainers[active]} isActive={true} />
@@ -129,13 +131,14 @@ export default function TrainerCarouselSection() {
                 right: '0',
                 transform: 'translateX(64%) scale(0.78)',
                 transformOrigin: 'left center',
-                transition: 'all 0.6s cubic-bezier(0.4,0,0.2,1)',
-                opacity: 0.5,
+                transition: 'transform 750ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 750ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+                opacity: 0.55,
                 filter: 'blur(1px)',
                 zIndex: 3,
                 borderRadius: '16px',
                 overflow: 'hidden',
                 boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                willChange: 'transform, opacity',
               }}
             >
               <VideoPlaceholder trainer={trainers[rightIdx]} isActive={false} />
@@ -224,7 +227,8 @@ export default function TrainerCarouselSection() {
             textAlign: 'center',
             padding: '0 8px',
             opacity: detailsFading ? 0 : 1,
-            transition: 'opacity 0.3s ease',
+            transition: 'opacity 350ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+            willChange: 'opacity',
           }}
         >
           <div
