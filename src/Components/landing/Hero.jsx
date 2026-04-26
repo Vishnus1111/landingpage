@@ -3,6 +3,8 @@ import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import homeHeroImage from '../../../asset/homehero.png';
+import homeFinanceImage from '../../../asset/homefinance.jpeg';
+import homeTrainingImage from '../../../asset/hometraining.jpeg';
 
 export default function Hero() {
     const navigate = useNavigate();
@@ -23,6 +25,7 @@ export default function Hero() {
             title: "Financial Analytics",
             description: "Comprehensive accounting & analytics solutions for businesses across sizes and sectors.",
             clickable: false,
+            image: homeFinanceImage,
         },
         {
             title: "IT Services",
@@ -37,6 +40,7 @@ export default function Hero() {
             clickable: true,
             route: '/talent-lab',
             imageClickableOnly: false,
+            image: homeTrainingImage,
         },
     ];
 
@@ -82,18 +86,35 @@ export default function Hero() {
                                         }
                                     } : undefined}
                                 >
-                                    <div
-                                        className={`h-28 rounded-lg bg-[#6C5CE7] mb-4 ${card.imageClickableOnly ? 'cursor-pointer' : ''}`}
-                                        onClick={card.imageClickableOnly ? () => navigateTo(card.route) : undefined}
-                                        role={card.imageClickableOnly ? 'button' : undefined}
-                                        tabIndex={card.imageClickableOnly ? 0 : undefined}
-                                        onKeyDown={card.imageClickableOnly ? (e) => {
-                                            if (e.key === 'Enter' || e.key === ' ') {
-                                                e.preventDefault();
-                                                navigateTo(card.route);
-                                            }
-                                        } : undefined}
-                                    />
+                                    {card.image ? (
+                                        <img
+                                            src={card.image}
+                                            alt={card.title}
+                                            className={`h-28 w-full rounded-lg object-cover mb-4 ${card.imageClickableOnly ? 'cursor-pointer' : ''}`}
+                                            onClick={card.imageClickableOnly ? () => navigateTo(card.route) : undefined}
+                                            role={card.imageClickableOnly ? 'button' : undefined}
+                                            tabIndex={card.imageClickableOnly ? 0 : undefined}
+                                            onKeyDown={card.imageClickableOnly ? (e) => {
+                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                    e.preventDefault();
+                                                    navigateTo(card.route);
+                                                }
+                                            } : undefined}
+                                        />
+                                    ) : (
+                                        <div
+                                            className={`h-28 rounded-lg bg-[#6C5CE7] mb-4 ${card.imageClickableOnly ? 'cursor-pointer' : ''}`}
+                                            onClick={card.imageClickableOnly ? () => navigateTo(card.route) : undefined}
+                                            role={card.imageClickableOnly ? 'button' : undefined}
+                                            tabIndex={card.imageClickableOnly ? 0 : undefined}
+                                            onKeyDown={card.imageClickableOnly ? (e) => {
+                                                if (e.key === 'Enter' || e.key === ' ') {
+                                                    e.preventDefault();
+                                                    navigateTo(card.route);
+                                                }
+                                            } : undefined}
+                                        />
+                                    )}
                                     <h3 className="text-xl font-semibold text-[#000066] mb-2">{card.title}</h3>
                                     <p className="text-[#4B5563] leading-relaxed text-sm md:text-base">{card.description}</p>
                                     {/* Enable navigation later */}
