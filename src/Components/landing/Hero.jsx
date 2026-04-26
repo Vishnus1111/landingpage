@@ -3,8 +3,9 @@ import { Button } from "@/Components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import homeHeroImage from '../../../asset/homehero.png';
-import homeFinanceImage from '../../../asset/homefinance.jpeg';
-import homeTrainingImage from '../../../asset/hometraining.jpeg';
+
+const homeFinanceImage = '/asset/homefinance.jpeg';
+const homeTrainingImage = '/asset/hometraining.jpeg';
 
 export default function Hero() {
     const navigate = useNavigate();
