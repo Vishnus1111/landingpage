@@ -75,13 +75,13 @@ export default function TrainerCarouselSection() {
         <p className="text-slate-500 mt-2">Senior L&amp;D professionals with decades of real-world experience.</p>
       </div>
 
-      <div
-        className="flex flex-col md:flex-row gap-8 items-stretch"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
+      <div className="flex flex-col md:flex-row gap-8 items-stretch">
         <div style={{ flex: '0 0 60%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div style={{ position: 'relative', width: '100%', height: '480px', perspective: '1000px', overflow: 'hidden' }}>
+          <div
+            style={{ position: 'relative', width: '100%', height: '480px', perspective: '1000px', overflow: 'hidden', cursor: 'pointer' }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
             <div
               style={{
                 position: 'absolute',
