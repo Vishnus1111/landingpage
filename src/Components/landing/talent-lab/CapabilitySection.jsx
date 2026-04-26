@@ -27,7 +27,7 @@ export default function CapabilitySection() {
         <div>
           <h3 className="text-xl font-bold text-[#f98ac7] mb-3">Our Approach</h3>
           <p className="text-slate-600 leading-relaxed">
-            At Meilleur Talent Lab, we design L&amp;D programs grounded in <strong>cognitive science, behavioural psychology, and real-world hiring frameworks.</strong> We build measurable capabilities — not motivational sessions.
+            At Meilleur Talent Lab, we design L&amp;D programs grounded in <strong className="font-black text-slate-900">cognitive science, behavioural psychology, and real-world hiring frameworks.</strong> We build measurable capabilities — not motivational sessions.
           </p>
         </div>
       </div>
